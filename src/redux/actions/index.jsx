@@ -31,8 +31,48 @@ const getDataStart = path => {
   }
 }
 // 获取数据成功
-const getDataSucess = (path,postData,success,name) => {
-  let url = target +path + Tool.paramFormate(postData);
+const getDataSuccess = (path,postData,success,name) => {
+  return {
+    type: GET_DATA_SUCCESS,
+    path,
+    postData,
+    success,
+    name
+  }
 }
 // 手动调用获取数据的action
+export const getData = (path,postData,success,name) => {
+  let url = target + path + Tool.paramFormate(postData);
+  return dispatch => {
+    dispatch(getDataStart(path));
+    return fetch(url,{
+      method: 'GET',
+      headers: {
+        'Context-Type': 'application/json'
+      },
+      mode: 'cors'
+    })
+      .then(response => response.json())
+      .then(json => dispatch(getDataSuccess(path,json,success,name)))
+      .catch(err => console.log(err))
+  }
+}
 // 页面初次渲染时Get方式获取数据
+export const fetchGets = (path,postData) => {
+  let url = target + path + Tool.paramFormate(postData);
+  return dispatch => {
+    dispatch(requestPosts(path));
+    return fetch(url,{
+      mode: 'cors',
+      'Content-Type': 'application/json'
+    })
+      .then(response => {
+        if (response.ok){
+          response.json().then(json => dispatch(receivePosts(path,json)))
+        }else {
+          console.log('status:' + response.status)
+        }
+      })
+      .catch(err => console.log(err))
+  }
+}

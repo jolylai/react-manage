@@ -1,14 +1,11 @@
-# About this folder
-This folder will hold all of your **flux** actions if you are using flux.
-You can include actions into your components or stores like this:
+## dispatch
+store.dispatch()是 View 发出 Action 的唯一方法。
+```
+import { createStore } from 'redux';
+const store = createStore(fn);
 
-```javascript
-let react = require('react/addons');
-let MyAction = require('actions/MyAction');
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    MyAction.exampleMethod();
-  }
-}
+store.dispatch({
+  type: 'ADD_TODO',
+  payload: 'Learn Redux'
+});
 ```
