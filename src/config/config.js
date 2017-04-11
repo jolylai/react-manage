@@ -1,6 +1,6 @@
 const config ={
   //目标网站
-  target: process.env.NODE_ENV !== 'production' ? 'http://admin.jolylai.com': 'http://jolylai.com',
+  target: process.env.NODE_ENV !== 'production' ? 'http://admin.sosout.com' : 'http://admin.sosout.com',
   name: 'Ant design Admin',
   footerText: 'Ant Design Admin 版权所有 © 2017 由 sosout 支持',
   logoSrc: 'https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg',
@@ -20,7 +20,7 @@ Tool.paramFormate = data => {
   paramStr = paramArr.join('&');
   paramStr = '?' + paramStr;
   return paramStr
-}
+};
 
 /**
  * 本地数据存储或读取
@@ -43,8 +43,8 @@ Tool.localItem = function(key,value){
  * @param  key
  * @returns
  */
-Tool.removeLocalItem = function(key) => {
+Tool.removeLocalItem = (key) => {
   return key ? localStorage.removeItem(key) : localStorage.removeItem();
-}
+};
 
 export { config,Tool };

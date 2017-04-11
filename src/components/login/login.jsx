@@ -22,6 +22,7 @@ class Login extends Component {
     		loginSpinning: true
     	};
     }
+      //点击登录按钮后进行密码校验
   	handleSubmit = (e) => {
     	e.preventDefault();
 	    this.props.form.validateFieldsAndScroll((err, values) => {
@@ -41,7 +42,7 @@ class Login extends Component {
 		    	console.log('Received values of form: ', values);
 		    }
 	    });
-	}
+	};
 	checkConfirm = (rule, value, callback) => {
 		const form = this.props.form;
 	    if (value && this.state.passwordDirty) {
@@ -90,8 +91,8 @@ class Login extends Component {
 				          <Button type="primary" htmlType="submit" size="large" loading={this.state.loginBtnLoading}>{this.state.loginBtnText}</Button>
 				        </FormItem>
 				        <div className="login-account">
-				          <span>账号：sosout</span>
-				          <span>密码：sosout</span>
+				          <span>账号：jolylai</span>
+				          <span>密码：jolylai</span>
 				        </div>
 			        </Form>
 		        </Spin>
@@ -107,4 +108,8 @@ Login.contextTypes = {
 
 const Main = Form.create()(Login);
 
-export default Login;
+export default renderData({
+  id: 'login',  //应用关联使用的redux
+  component: Main, //接收数据的组件入口
+  url: '' //服务器请求的地址
+});

@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import {REQUEST_POSTS, RECEIVE_POSTS, GET_DATA_START, GET_DATA_SUCCESS} from '../action/index';
+import {REQUEST_POSTS, RECEIVE_POSTS, GET_DATA_START, GET_DATA_SUCCESS} from '../actions/index';
 
 const defaultState = Immutable.fromJS({data: {}, isFetching: false});
 
@@ -8,7 +8,7 @@ const defaultState = Immutable.fromJS({data: {}, isFetching: false});
 export const fetchData = (state = defaultState,action = {}) => {
   switch (action.type){
     case REQUEST_POSTS:
-      return state.set('isFetching',true)
+      return state.set('isFetching',true);
     case RECEIVE_POSTS:
       //返回一个新的state
       return Immutable.Map({'data':action.json,'isFetching': false});
@@ -21,7 +21,7 @@ export const fetchData = (state = defaultState,action = {}) => {
 export const requestData = (state = {},action = {}) => {
   switch (action.type){
     case GET_DATA_START:
-      return state
+      return state;
     case GET_DATA_SUCCESS:
       action.success(action.json);
       state[action.name] = action.json;
