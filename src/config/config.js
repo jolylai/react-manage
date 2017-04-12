@@ -1,8 +1,9 @@
 const config ={
   //目标网站
-  target: process.env.NODE_ENV !== 'production' ? 'http://admin.sosout.com' : 'http://admin.sosout.com',
+  target: process.env.NODE_ENV !== 'production' ? 'http://admin.jolylai.com' : 'http://admin.jolylai.com',
   name: 'Ant design Admin',
-  footerText: 'Ant Design Admin 版权所有 © 2017 由 sosout 支持',
+  footerText: '智能楼宇后台管理系统 版权所有 © 2017 由 jolylai 支持',
+  // ant图片
   logoSrc: 'https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg',
   logoText: 'Antd Admin',
   needLogin: true
@@ -10,7 +11,7 @@ const config ={
 
 const Tool = {};
 
-// 参数格式化
+// 参数格式化 ?key=value&key=value
 Tool.paramFormate = data => {
   let paramArr = [];
   let paramStr = '';
@@ -36,7 +37,7 @@ Tool.localItem = function(key,value){
   }else {
     return localStorage.setItem(key,value);
   }
-}
+};
 /**
  * 删除本地数据
  *

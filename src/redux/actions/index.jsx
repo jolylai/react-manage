@@ -14,7 +14,7 @@ const  requestPosts = path => {
     type: REQUEST_POSTS,
     path
   }
-}
+};
 // 获取数据成功
 const receivePosts = (path,json) => {
   return {
@@ -22,14 +22,14 @@ const receivePosts = (path,json) => {
     path,
     json
   }
-}
+};
 // 开始获取数据
 const getDataStart = path => {
   return {
     type: GET_DATA_START,
     path
   }
-}
+};
 // 获取数据成功
 const getDataSuccess = (path,postData,success,name) => {
   return {
@@ -39,7 +39,7 @@ const getDataSuccess = (path,postData,success,name) => {
     success,
     name
   }
-}
+};
 // 手动调用获取数据的action
 export const getData = (path,postData,success,name) => {
   let url = target + path + Tool.paramFormate(postData);
@@ -56,7 +56,7 @@ export const getData = (path,postData,success,name) => {
       .then(json => dispatch(getDataSuccess(path,json,success,name)))
       .catch(err => console.log(err))
   }
-}
+};
 // 页面初次渲染时Get方式获取数据
 export const fetchGets = (path,postData) => {
   let url = target + path + Tool.paramFormate(postData);
@@ -75,4 +75,4 @@ export const fetchGets = (path,postData) => {
       })
       .catch(err => console.log(err))
   }
-}
+};

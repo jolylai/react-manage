@@ -28,6 +28,12 @@ export class Lmenu extends Component{
             <span className="nav-text">首页</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="setting">
+          <Link to="/setting">
+            <Icon type="setting" />
+            <span className="nav-text">设置</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     )
   }

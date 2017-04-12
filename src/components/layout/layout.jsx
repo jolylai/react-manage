@@ -33,14 +33,14 @@ class Main extends Component{
       collapsed: collapsed,
       mode: collapsed ? 'vertical' : 'inline'
     });
-  }
+  };
   toggle = (collapsed) => {
     if (collapsed) Tool.localItem('COLLAPSED','YES');else Tool.localItem('COLLAPSED','NO');
     this.setState({
       collapsed: collapsed,
       mode: collapsed ? 'vertical' : 'inline'
     })
-  }
+  };
   render(){
     // 这个组件是一个包裹组件，所有的路由跳转的页面都会以this.props.children的形式加载到本组件下
     return(

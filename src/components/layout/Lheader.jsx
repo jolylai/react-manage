@@ -21,14 +21,14 @@ export class Lheader extends Component{
   }
   toggle = () => {
     this.props.toggle(!this.props.collapsed);
-  }
+  };
   logout = (e) => {
     //模拟退出
     if(e.key == 'logout'){
       delete localStorage.token;
       window.location.reload();
     }
-  }
+  };
   render(){
     return (
       <Header className="layout-header">

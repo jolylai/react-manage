@@ -14,12 +14,13 @@ import 'babel-polyfill';
 store.subscribe(() => {
   console.log(store.getState())
 });
+// 让容器组件拿到state
 render(
   <Provider store={store}>
     {route}
   </Provider>,
   document.getElementById('app')
-)
+);
 
 //render((
 //  <Router history={hashHistory}>

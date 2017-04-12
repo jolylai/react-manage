@@ -3,6 +3,7 @@ import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from
 import auth from '../components/common/utils/auth'; // 登录逻辑处理
 import layout from '../components/layout/layout.jsx'
 import login from '../components/login/Login'; // 登录界面
+import setting from '../components/setting/setting.jsx'; // 登录界面
 
 
 class Roots extends Component{
@@ -29,6 +30,7 @@ const requireAuth = (nextState,replace) => {
 const RouteConfig = (
   <Router history = { history }>
     <Route path="/home" component={ layout } onEnter={requireAuth}>
+      <Route path="/setting" component={ setting } onEnter={requireAuth}/>
     </Route>
     <Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
       <IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home

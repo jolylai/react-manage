@@ -49,7 +49,7 @@ class Login extends Component {
 	    	form.validateFields(['confirm'], { force: true });
 	    }
 	    callback();
-	}
+	};
 	/**
      * 在初始化渲染执行之后立刻调用一次，仅客户端有效（服务器端不会调用）。
      * 在生命周期中的这个时间点，组件拥有一个 DOM 展现，
@@ -82,7 +82,7 @@ class Login extends Component {
 				              required: true, message: '请填写密码',
 				            }, {
 				              validator: this.checkConfirm
-				            }],
+				            }]
 				          })(
 				            <Input size="large" type="password" placeholder="密码" />
 				          )}
